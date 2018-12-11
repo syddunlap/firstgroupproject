@@ -9,26 +9,95 @@
     <link rel="stylesheet" type="reset/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="style/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans+Condensed:300|Righteous" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/script.js"></script>
 </head>
 
 <body>
 
+
     <!-- Jumbotron holding the page title -->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid">
-            <h1 class="display-4">Music Weather</h1>
+    <div class="row">
+        <div class="col-12">
+            <div id="pagetitle">
+                <div class="container-fluid text-center">
+                    <h1 class="display-4">Music Weather</h1>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Container holding the content of the webpage -->
-    <div class="container-fluid main-page">
+    Container holding the first page the user sees
+    <div class="open-page">
+        <!-- Container holding the instructions for user -->
         <div class="row">
-        <!-- Insert code here for user input form name & location -->
+            <div class="col-12">
+                <div class="container-fluid text-center instructions">
+                    <h5>Welcome.</h5>
+                    <h5>Tell us your name and location and we will create a playlist to cater to the
+                        appropriate weather conditions outside, wherever you are, right now.</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container holding the userInput form -->
+        <div class="row">
+            <div class="col-12 align-items-center">
+                <form>
+                    <div class="form-row userInputForm">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <div class="form-row userInputForm justify-content-center">
+                        <button type="submit" class="btn justify-content-end">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
+    <!-- Div holding response after user submits name & location -->
+    <div class="userMusic">
+        <!-- Div holding specific user greeting -->
+        <div class="row">
+            <div class="col-12">
+                <div class="container-fluid text-center instructions">
+                    <h5>Welcome, USERNAME.</h5>
+                    <h5>Here's a list of songs perfect for you WEATHER day in LOCATION.</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Div holding form with list of suggested music from music API -->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <div class="card-header">Your Perfect Playlist for Today</div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Song Title</th>
+                                        <th scope="col">Artist</th>
+                                        <th scope="col">Album</th>
+                                        <th scope="col">Year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
 
 </body>
 

@@ -1,0 +1,54 @@
+/* Style the entire page */
+body {
+    background-image: url("../../backgroundimage.jpg");
+}
+
+/* Style the header */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+/* Style the instructions or user specific greeting */
+h5 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
+}
+
+/* Style the form */
+.form-control {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
+}
+
+/* Style the Submit button */
+.btn {
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: rgba(13, 13, 46);
+    color: white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: rgba(13, 13, 46);
+}
+
+/* Margins on the form */
+.userInputForm {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.card {
+    margin-top: 15px;
+}
+.card-header {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-body {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
