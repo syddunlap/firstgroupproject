@@ -38,10 +38,18 @@ $(document).ready(function () {
         console.log(queryURL);
         console.log(response);
 
+        // Store the info we want in variables
         var weatherDescription = response.weather[0].description;
         var locationCity = response.name;
         console.log(weatherDescription);
         console.log(locationCity);
+
+        // Add to html
+        $(".instructions").append(
+          $("<h5>").text("Hello, " + name + "!"),
+          $("<h5>").text("Here's a list of songs perfect for your " + weatherDescription + " day in " + locationCity + ".")
+        );
+
       })
 
     $("#name").val("");
