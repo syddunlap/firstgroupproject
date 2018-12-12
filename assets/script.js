@@ -11,17 +11,22 @@ $(document).ready(function () {
   //   };
   //   firebase.initializeApp(config);
 
-  // Weather App API Key
-  var APIKey = "13783c874e54ca4e2de546d0430362f0";
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=imperial&appid=" + APIKey;
+  // Hide music table until form is submitted
+  $(".userMusic").hide();
 
   // Click event for submit button
   $("#submit").on("click", function (event) {
     event.preventDefault();
+    $(".open-page").hide();
+    $(".userMusic").show();
     var name = $("#name").val().trim();
     var location = $("#location").val().trim();
     console.log(name);
     console.log(location);
+
+    // Weather App API Key
+    var APIKey = "13783c874e54ca4e2de546d0430362f0";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + location + "&units=imperial&appid=" + APIKey;
 
     // Get Weather
     $.ajax({
@@ -32,9 +37,15 @@ $(document).ready(function () {
       .then(function (response) {
         console.log(queryURL);
         console.log(response);
+
+        var weatherDescription = response.weather[0].description;
+        var locationCity = response.name;
+        console.log(weatherDescription);
+        console.log(locationCity);
       })
+
+    $("#name").val("");
+    $("#location").val("");
   })
-
-
 
 })
