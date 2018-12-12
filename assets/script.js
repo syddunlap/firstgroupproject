@@ -40,8 +40,10 @@ $(document).ready(function () {
       // Store the info we want in variables
       var weatherDescription = response.weather[0].description;
       var locationCity = response.name;
+      var mood = response.weather[0].id;
       console.log(weatherDescription);
       console.log(locationCity);
+      console.log(mood);
       
       // Add to html
       $(".instructions").append(
