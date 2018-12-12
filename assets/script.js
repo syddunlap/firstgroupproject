@@ -18,37 +18,39 @@ $(document).ready(function () {
   $("#submit").on("click", function (event) {
     event.preventDefault();
     $(".open-page").hide();
-    $(".userMusic").show();
     var name = $("#name").val().trim();
     var location = $("#location").val().trim();
     console.log(name);
     console.log(location);
-
+    
     // Weather App API Key
     var APIKey = "13783c874e54ca4e2de546d0430362f0";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + location + "&units=imperial&appid=" + APIKey;
-
+    
     // Get Weather
     $.ajax({
       url: queryURL,
       method: "GET"
     })
-
-      .then(function (response) {
-        console.log(queryURL);
-        console.log(response);
-
-        // Store the info we want in variables
-        var weatherDescription = response.weather[0].description;
-        var locationCity = response.name;
-        console.log(weatherDescription);
-        console.log(locationCity);
-
-        // Add to html
-        $(".instructions").append(
-          $("<h5>").text("Hello, " + name + "!"),
-          $("<h5>").text("Here's a list of songs perfect for your " + weatherDescription + " day in " + locationCity + ".")
+    
+    .then(function (response) {
+      console.log(queryURL);
+      console.log(response);
+      
+      // Store the info we want in variables
+      var weatherDescription = response.weather[0].description;
+      var locationCity = response.name;
+      console.log(weatherDescription);
+      console.log(locationCity);
+      
+      // Add to html
+      $(".instructions").append(
+        $("<h5>").text("Hello, " + name + "!"),
+        $("<h5>").text("Here's a list of songs perfect for the " + weatherDescription + " in " + locationCity + ".")
         );
+
+        // Show playlist
+        $(".userMusic").show();
 
       })
 
