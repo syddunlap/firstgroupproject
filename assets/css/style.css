@@ -15,7 +15,7 @@ h1 {
 }
 
 /* Style the instructions or user specific greeting */
-h5 {
+h4 {
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
 }
@@ -23,6 +23,18 @@ h5 {
 /* Style the form */
 .form-control {
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#name {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#city {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#country {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* Style the Submit button */
@@ -46,6 +58,7 @@ h5 {
 
 .card {
     margin-top: 15px;
+    background: rgba(245, 243, 243, 0.8);
 }
 .card-header {
     font-family: 'Montserrat', sans-serif;

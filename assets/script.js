@@ -19,13 +19,14 @@ $(document).ready(function () {
     event.preventDefault();
     $(".open-page").hide();
     var name = $("#name").val().trim();
-    var location = $("#location").val().trim();
+    var city = $("#city").val().trim();
+    var country = $("#country").val().trim();
     console.log(name);
     console.log(location);
     
     // Weather App API Key
     var APIKey = "13783c874e54ca4e2de546d0430362f0";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + location + "&units=imperial&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&units=imperial&appid=" + APIKey;
     
     // Get Weather
     $.ajax({
@@ -47,8 +48,8 @@ $(document).ready(function () {
       
       // Add to html
       $(".instructions").append(
-        $("<h5>").text("Hello, " + name + "!"),
-        $("<h5>").text("Here's a list of songs perfect for the " + weatherDescription + " in " + locationCity + ".")
+        $("<h4>").text("Hello, " + name + "!"),
+        $("<h4>").text("Here's a list of songs perfect for the " + weatherDescription + " you're experiencing in " + locationCity + ", right now.")
         );
 
         // Show playlist
