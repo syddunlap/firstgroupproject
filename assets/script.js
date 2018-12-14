@@ -21,13 +21,14 @@ $(document).ready(function () {
   var cloud = [801, 802, 803, 804];
 
   // Arrays for albums
-  var thunderstormMusic = [33491453];
-  var drizzleMusic = [33491453];
-  var rainMusic = [33491453];
-  var snowMusic = [33491453];
-  var atmosphereMusic = [33491453];
-  var clearMusic = [33491453];
-  var cloudMusic = [33491453];
+  var albumID = [];
+  var thunderstormMusic = [];
+  var drizzleMusic = [];
+  var rainMusic = [];
+  var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
+  var atmosphereMusic = [];
+  var clearMusic = [];
+  var cloudMusic = [];
 
   // Hide music table until form is submitted
   $(".userMusic").hide();
@@ -74,19 +75,19 @@ $(document).ready(function () {
 
         // Connecting the weather ID to the mood
         if (thunderstorm.includes(mood) === true) {
-
+          albumID = thunderstormMusic[Math.floor(Math.random()*items.length)];
         } else if (drizzle.includes(mood) === true) {
-
+          albumID = drizzleMusic[Math.floor(Math.random()*items.length)];
         } else if (rain.includes(mood) === true) {
-
+          albumID = rainMusic[Math.floor(Math.random()*items.length)];
         } else if (snow.includes(mood) === true) {
-
+          albumID = snowMusic[Math.floor(Math.random()*items.length)];
         } else if (atmosphere.includes(mood) === true) {
-
+          albumID = atmosphereMusic[Math.floor(Math.random()*items.length)];
         } else if (clear.includes(mood) === true) {
-
+          albumID = clearMusic[Math.floor(Math.random()*items.length)];
         } else if (cloud.includes(mood) === true) {
-          
+          albumID = cloudMusic[Math.floor(Math.random()*items.length)];
         };
 
         // Music App API Key
