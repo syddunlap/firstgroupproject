@@ -75,19 +75,19 @@ $(document).ready(function () {
 
         // Connecting the weather ID to the mood
         if (thunderstorm.includes(mood) === true) {
-          albumID = thunderstormMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         } else if (drizzle.includes(mood) === true) {
-          albumID = drizzleMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         } else if (rain.includes(mood) === true) {
-          albumID = rainMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         } else if (snow.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         } else if (atmosphere.includes(mood) === true) {
-          albumID = atmosphereMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         } else if (clear.includes(mood) === true) {
-          albumID = clearMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         } else if (cloud.includes(mood) === true) {
-          albumID = cloudMusic[Math.floor(Math.random()*items.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
         };
 
         // Music App API Key
@@ -105,15 +105,33 @@ $(document).ready(function () {
 
         }).then(function (response2) {
           console.log(response2);
+          console.log(response2.message.body.track_list);
+          var trackList = response2.message.body.track_list;
+
+          for (i = 0; i < response2.message.body.track_list.length; i++) {
+            var songTitle = trackList[i].track.track_name;
+            var album = trackList[i].track.album_name;
+            var artist = trackList[i].track.artist_name;
+            console.log(songTitle)
+            console.log(album);
+            console.log(artist);
+
+            var songRow = $("<tr>").append(
+              $("<td>").text(songTitle),
+              $("<td>").text(album),
+              $("<td>").text(artist)
+            );
+
+            $(".table > tbody").append(songRow);
+          }
         });
+
+
 
         // Show playlist
         $(".userMusic").show();
 
-
       })
-
-
 
     $("#name").val("");
     $("#location").val("");

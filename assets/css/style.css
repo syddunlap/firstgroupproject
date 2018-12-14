@@ -56,9 +56,11 @@ h4 {
     margin-top: 15px;
 }
 
+/* Style the table */
 .card {
-    margin-top: 15px;
     background: rgba(245, 243, 243, 0.8);
+    max-width: 80%;
+    margin: 15px auto 15px auto;
 }
 .card-header {
     font-family: 'Montserrat', sans-serif;
