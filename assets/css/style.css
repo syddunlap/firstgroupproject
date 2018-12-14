@@ -1,6 +1,6 @@
 /* Style the entire page */
 body {
-    background-image: url("../../backgroundimage.jpg");
+    background-image: url("../images/backgroundimage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
