@@ -23,8 +23,8 @@ $(document).ready(function () {
   // Arrays for albums
   var albumID = [];
   var thunderstormMusic = [];
-  var drizzleMusic = [];
-  var rainMusic = [];
+  var drizzleMusic = [22361598, 27489448, 29720412, 28388607, 10295648, 27598567, 27194451, 13816702, 28221475, 28221475, 23704555, 23860222, 11309308, 29976222, 21345246, 14209073];
+  var rainMusic = [27720830, 25974030, 29250381, 25169349, 17053074, 20906499, 29194043, 23604992, 28202568, 29377809, 28024665, 20901646, 29572368, 29141934];
   var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
   var atmosphereMusic = [];
   var clearMusic = [19506205, 20916221, 19573520, 27656491, 26318237, 26020802, 25964776, 24006984, 28514027, 30509479, 29709466, 29360342, 26142662, 25984735, 23856024];
@@ -77,9 +77,9 @@ $(document).ready(function () {
         if (thunderstorm.includes(mood) === true) {
           albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (drizzle.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
+          albumID = drizzleMusic[Math.floor(Math.random() * drizzleMusic.length)];
         } else if (rain.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
+          albumID = rainMusic[Math.floor(Math.random() * rainMusic.length)];
         } else if (snow.includes(mood) === true) {
           albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (atmosphere.includes(mood) === true) {
