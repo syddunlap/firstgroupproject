@@ -15,7 +15,7 @@ $(document).ready(function () {
   var thunderstorm = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
   var drizzle = [300, 301, 302, 310, 311, 312, 313, 314, 321];
   var rain = [500, 501, 502, 503, 504, 511, 520, 521, 522, 531];
-  var snowMusic = [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
+  var snow= [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
   var atmosphere = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781];
   var clear = [800];
   var cloud = [801, 802, 803, 804];
@@ -80,7 +80,7 @@ $(document).ready(function () {
           albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (rain.includes(mood) === true) {
           albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
-        } else if (snowMusic.includes(mood) === true) {
+        } else if (snow.includes(mood) === true) {
           albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (atmosphere.includes(mood) === true) {
           albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
