@@ -10,44 +10,52 @@ body {
 h1 {
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
-    color: white;
+    color: whitesmoke;
     text-shadow: 2px 2px 4px #000000;
 }
 
 /* Style the instructions or user specific greeting */
 h4 {
     font-family: 'Open Sans Condensed', sans-serif;
-    color: white;
+    color: whitesmoke;
 }
 
 /* Style the form */
 .form-control {
     font-family: 'Open Sans Condensed', sans-serif;
+    margin: auto;
 }
 
 #name {
-    background: rgba(255, 255, 255, 0.8);
+    background-color: #bdcad9;
+    background-image: linear-gradient(315deg, #bdcad9 0%, #e1dada 74%);
 }
 
 #city {
-    background: rgba(255, 255, 255, 0.8);
+    background-color: #bdcad9;
+    background-image: linear-gradient(315deg, #bdcad9 0%, #e1dada 74%);
 }
 
 #country {
-    background: rgba(255, 255, 255, 0.8);
+    background-color: #bdcad9;
+    background-image: linear-gradient(315deg, #bdcad9 0%, #e1dada 74%);
+
 }
 
 /* Style the Submit button */
 .btn {
     font-family: 'Open Sans Condensed', sans-serif;
-    background-color: rgba(13, 13, 46);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.671);
+    font-size: 1.2rem;
+    color: whitesmoke;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+
 }
 
-.btn:hover {
-    background-color: white;
-    color: rgba(13, 13, 46);
-}
+
 
 /* Margins on the form */
 .userInputForm {
@@ -73,21 +81,34 @@ h4 {
 /* Footer Styling */
 .footer {
     text-align: center;
-    position: absolute;
     bottom: 0;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
     background-color: rgba(0, 0, 8, 0.541);
     display: block;
     font-family: 'Open Sans Condensed', sans-serif;
-    color: white;
+    color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    padding-right: 5px;
 }
 
 .link {
-    color: white;
+    color: whitesmoke;
 }
 
 .link:hover {
     text-decoration: none;
 }
+
+.wrapper {
+    min-height: 100%;
+    padding-bottom: 2px;
+}
+
+.push .footer {
+    height: 30px;
+}
+
+.custom-input-width{
+    width: 700px;
+}
+
