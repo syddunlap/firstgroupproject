@@ -28,7 +28,7 @@ $(document).ready(function () {
   var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
   var atmosphereMusic = [];
   var clearMusic = [19506205, 20916221, 19573520, 27656491, 26318237, 26020802, 25964776, 24006984, 28514027, 30509479, 29709466, 29360342, 26142662, 25984735, 23856024];
-  var cloudMusic = [];
+  var cloudMusic = [28228758, 15402133, 11316988, 11316988, 10814625, 18766926, 10279891, 14245174, 19468549, 19468520];
 
   // Hide music table until form is submitted
   $(".userMusic").hide();
@@ -87,7 +87,7 @@ $(document).ready(function () {
         } else if (clear.includes(mood) === true) {
           albumID = clearMusic[Math.floor(Math.random() * clearMusic.length)];
         } else if (cloud.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
+          albumID = cloudMusic[Math.floor(Math.random() * cloudMusic.length)];
         };
 
         // Music App API Key

@@ -69,3 +69,25 @@ h4 {
 .card-body {
     font-family: 'Open Sans Condensed', sans-serif;
 }
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgba(0, 0, 8, 0.541);
+    display: block;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    text-decoration: none;
+}
