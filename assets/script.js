@@ -15,7 +15,7 @@ $(document).ready(function () {
   var thunderstorm = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
   var drizzle = [300, 301, 302, 310, 311, 312, 313, 314, 321];
   var rain = [500, 501, 502, 503, 504, 511, 520, 521, 522, 531];
-  var snow = [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
+  var snow= [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
   var atmosphere = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781];
   var clear = [800];
   var cloud = [801, 802, 803, 804];
@@ -27,7 +27,7 @@ $(document).ready(function () {
   var rainMusic = [];
   var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
   var atmosphereMusic = [];
-  var clearMusic = [];
+  var clearMusic = [19506205, 20916221, 19573520, 27656491, 26318237, 26020802, 25964776, 24006984, 28514027, 30509479, 29709466, 29360342, 26142662, 25984735, 23856024];
   var cloudMusic = [];
 
   // Hide music table until form is submitted
@@ -75,19 +75,19 @@ $(document).ready(function () {
 
         // Connecting the weather ID to the mood
         if (thunderstorm.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (drizzle.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (rain.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (snow.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (atmosphere.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         } else if (clear.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = clearMusic[Math.floor(Math.random() * clearMusic.length)];
         } else if (cloud.includes(mood) === true) {
-          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+          albumID = snowMusic[Math.floor(Math.random() * snowMusic.length)];
         };
 
         // Music App API Key
