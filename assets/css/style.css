@@ -1,6 +1,6 @@
 /* Style the entire page */
 body {
-    background-image: url("../../backgroundimage.jpg");
+    background-image: url("../images/backgroundimage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -15,7 +15,7 @@ h1 {
 }
 
 /* Style the instructions or user specific greeting */
-h5 {
+h4 {
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
 }
@@ -23,6 +23,18 @@ h5 {
 /* Style the form */
 .form-control {
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#name {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#city {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#country {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* Style the Submit button */
@@ -44,8 +56,11 @@ h5 {
     margin-top: 15px;
 }
 
+/* Style the table */
 .card {
-    margin-top: 15px;
+    background: rgba(245, 243, 243, 0.8);
+    max-width: 80%;
+    margin: 15px auto 15px auto;
 }
 .card-header {
     font-family: 'Montserrat', sans-serif;

@@ -11,6 +11,25 @@ $(document).ready(function () {
   //   };
   //   firebase.initializeApp(config);
 
+  // Arrays for weather IDs
+  var thunderstorm = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
+  var drizzle = [300, 301, 302, 310, 311, 312, 313, 314, 321];
+  var rain = [500, 501, 502, 503, 504, 511, 520, 521, 522, 531];
+  var snow = [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
+  var atmosphere = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781];
+  var clear = [800];
+  var cloud = [801, 802, 803, 804];
+
+  // Arrays for albums
+  var albumID = [];
+  var thunderstormMusic = [];
+  var drizzleMusic = [];
+  var rainMusic = [];
+  var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
+  var atmosphereMusic = [];
+  var clearMusic = [];
+  var cloudMusic = [];
+
   // Hide music table until form is submitted
   $(".userMusic").hide();
 
@@ -19,37 +38,95 @@ $(document).ready(function () {
     event.preventDefault();
     $(".open-page").hide();
     var name = $("#name").val().trim();
-    var location = $("#location").val().trim();
+    var city = $("#city").val().trim();
+    var country = $("#country").val().trim();
     console.log(name);
     console.log(location);
-    
+
+
     // Weather App API Key
     var APIKey = "13783c874e54ca4e2de546d0430362f0";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + location + "&units=imperial&appid=" + APIKey;
-    
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&units=imperial&appid=" + APIKey;
+
     // Get Weather
     $.ajax({
       url: queryURL,
       method: "GET"
     })
-    
-    .then(function (response) {
-      console.log(queryURL);
-      console.log(response);
-      
-      // Store the info we want in variables
-      var weatherDescription = response.weather[0].description;
-      var locationCity = response.name;
-      var mood = response.weather[0].id;
-      console.log(weatherDescription);
-      console.log(locationCity);
-      console.log(mood);
-      
-      // Add to html
-      $(".instructions").append(
-        $("<h5>").text("Hello, " + name + "!"),
-        $("<h5>").text("Here's a list of songs perfect for the " + weatherDescription + " in " + locationCity + ".")
+
+      .then(function (response) {
+        console.log(queryURL);
+        console.log(response);
+
+        // Store the info we want in variables
+        var weatherDescription = response.weather[0].description;
+        var locationCity = response.name;
+        var mood = response.weather[0].id;
+        console.log(weatherDescription);
+        console.log(locationCity);
+        console.log(mood);
+
+
+        // Add to html
+        $(".instructions").append(
+          $("<h4>").text("Hello, " + name + "!"),
+          $("<h4>").text("Here's an album perfect for the " + weatherDescription + " you're experiencing in " + locationCity + ", right now.")
         );
+
+        // Connecting the weather ID to the mood
+        if (thunderstorm.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        } else if (drizzle.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        } else if (rain.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        } else if (snow.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        } else if (atmosphere.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        } else if (clear.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        } else if (cloud.includes(mood) === true) {
+          albumID = snowMusic[Math.floor(Math.random() * snow.length)];
+        };
+
+        // Music App API Key
+        var APIKey2 = "8189f287014498b50483839cf645fcef";
+        var queryURL2 = "https://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=" + albumID + "&page=1&page_size=20&apikey=" + APIKey2;
+        var proxy = "https://cors-anywhere.herokuapp.com/";
+        var finishedurl = proxy + queryURL2;
+
+        $.ajax({
+          url: finishedurl,
+          method: "GET",
+          crossDomain: true,
+          dataType: "json",
+          contentType: "application/json"
+
+        }).then(function (response2) {
+          console.log(response2);
+          console.log(response2.message.body.track_list);
+          var trackList = response2.message.body.track_list;
+
+          for (i = 0; i < response2.message.body.track_list.length; i++) {
+            var songTitle = trackList[i].track.track_name;
+            var album = trackList[i].track.album_name;
+            var artist = trackList[i].track.artist_name;
+            console.log(songTitle)
+            console.log(album);
+            console.log(artist);
+
+            var songRow = $("<tr>").append(
+              $("<td>").text(songTitle),
+              $("<td>").text(album),
+              $("<td>").text(artist)
+            );
+
+            $(".table > tbody").append(songRow);
+          }
+        });
+
+
 
         // Show playlist
         $(".userMusic").show();
