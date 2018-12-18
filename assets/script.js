@@ -15,18 +15,18 @@ $(document).ready(function () {
   var thunderstorm = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
   var drizzle = [300, 301, 302, 310, 311, 312, 313, 314, 321];
   var rain = [500, 501, 502, 503, 504, 511, 520, 521, 522, 531];
-  var snow= [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
+  var snow = [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
   var atmosphere = [701, 711, 721, 731, 741, 751, 761, 762, 771, 781];
   var clear = [800];
   var cloud = [801, 802, 803, 804];
 
   // Arrays for albums
   var albumID = [];
-  var thunderstormMusic = [27221515,29621868,14214183,26627286,28343751,30161803,20923198,20523014,14298911,13954561,19626917,22993501,20918069,26682020,10280400,11302331,11326966,29365764,10974137,19607831,11335735];
+  var thunderstormMusic = [27221515, 29621868, 14214183, 26627286, 28343751, 30161803, 20923198, 20523014, 14298911, 13954561, 19626917, 22993501, 20918069, 26682020, 10280400, 11302331, 11326966, 29365764, 10974137, 19607831, 11335735];
   var drizzleMusic = [22361598, 27489448, 29720412, 28388607, 10295648, 27598567, 27194451, 13816702, 28221475, 28221475, 23704555, 23860222, 11309308, 29976222, 21345246, 14209073];
   var rainMusic = [27720830, 25974030, 29250381, 25169349, 17053074, 20906499, 29194043, 23604992, 28202568, 29377809, 28024665, 20901646, 29572368, 29141934];
   var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
-  var atmosphereMusic = [28708799, 22012241, 16637257, 20568155, 28582508, 11309799, 11314052, 10426863, 28689059,29809240,29550454,10277909,15576062,10351407,10287464,14283082,15545998,13908538,24559057,23989672,15564339];
+  var atmosphereMusic = [28708799, 22012241, 16637257, 20568155, 28582508, 11309799, 11314052, 10426863, 28689059, 29809240, 29550454, 10277909, 15576062, 10351407, 10287464, 14283082, 15545998, 13908538, 24559057, 23989672, 15564339];
   var clearMusic = [19506205, 20916221, 19573520, 27656491, 26318237, 26020802, 25964776, 24006984, 28514027, 30509479, 29709466, 29360342, 26142662, 25984735, 23856024];
   var cloudMusic = [28228758, 15402133, 11316988, 11316988, 10814625, 18766926, 10279891, 14245174, 19468549, 19468520];
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
         console.log(mood);
 
         // Add to html
-        $(".instructions").append(
+        $(".personalgreeting").append(
           $("<h4>").text("Hello, " + name + "!"),
           $("<h4>").text("Here's an album perfect for the " + weatherDescription + " you're experiencing in " + locationCity + ", right now.")
         );
@@ -105,33 +105,41 @@ $(document).ready(function () {
           console.log(response2);
           // console.log(response2.message.body.track_list);
           var trackList = response2.message.body.track_list;
+          var album = trackList[0].track.album_name;
+          var artist = trackList[0].track.artist_name;
+          $(".album-header").append(album + ", " + artist);
 
           for (i = 0; i < response2.message.body.track_list.length; i++) {
             var songTitle = trackList[i].track.track_name;
-            var album = trackList[i].track.album_name;
-            var artist = trackList[i].track.artist_name;
-            var duration = trackList[i].track.track_length;
+            var songInfo = trackList[i].track.track_share_url;
             // console.log(songTitle);
             // console.log(album);
             // console.log(artist);
 
-            // (".card-header").html(album + ", " + artist);
-
             var songRow = $("<tr>").append(
               $("<td>").text(songTitle),
-              $("<td>").text(duration)
+              $("<td>").html(songInfo)
             );
 
             $(".table > tbody").append(songRow);
           }
+
+          // Show playlist
+          $(".userMusic").show();
         });
 
-        // Show playlist
-        $(".userMusic").show();
       })
 
     $("#name").val("");
-    $("#location").val("");
+    $("#city").val("");
+    $("#country").val("");
   })
 
+  // THIS NEEDS WORK.. 
+  // Need to figure out resetting the userMusic page so that it only prints current and doesn't just keep adding albums on top of each other
+  $("#restart").on("click", function(event) {
+    event.preventDefault();
+    $(".userMusic").hide();
+    $(".open-page").show();
+  })
 })

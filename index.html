@@ -81,7 +81,7 @@
             <!-- Div holding specific user greeting -->
             <div class="row">
                 <div class="col-12">
-                    <div class="container-fluid text-center instructions"></div>
+                    <div class="container-fluid text-center personalgreeting"></div>
                 </div>
             </div>
 
@@ -89,13 +89,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
-                        <div class="card-header">Your Perfect Album for Today</div>
+                        <div class="card-header album-header"></div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Song Title</th>
-                                        <th scope="col">Duration (min.)</th>
+                                        <th scope="col">Song Info</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -108,9 +108,17 @@
             <!-- Related Artists -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="container-fluid text-center related-artists"></div>
-                </div>
+                    <div class="card mb-4">
+                        <div class="card-header">Related Artists</div>
+                        <div class="card-body">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <button type="submit" id="restart" class="btn justify-content-end  mt-3">Try Another City</button>
             </div>
         </div>
     </div>
