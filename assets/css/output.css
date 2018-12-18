@@ -1,0 +1,95 @@
+#country, #city, #name {
+  background-color: #bdcad9;
+  background-image: linear-gradient(315deg, #bdcad9 0%, #e1dada 74%);
+}
+
+.card, .userInputForm {
+  max-width: 80%;
+  margin: 15px auto 15px auto;
+}
+
+/* Style the entire page */
+body {
+  background-image: url("../images/backgroundimage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* Style the header */
+h1 {
+  font-family: "Monoton", cursive;
+  font-size: 56px;
+  padding-top: 60px;
+  color: #8b303f;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+/* Style the open page */
+/* Style the instructions or user specific greeting */
+h4 {
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 28px;
+  color: whitesmoke;
+}
+
+/* Input form boxes */
+/* Style the Submit button */
+.btn {
+  font-family: "IBM Plex Mono", monospace;
+  background-color: rgba(0, 0, 0, 0.671);
+  font-size: 1.2rem;
+  color: whitesmoke;
+  border-radius: 5px;
+  width: 100px;
+  text-align: center;
+}
+
+.btn:hover {
+  color: #8b303f;
+}
+
+/* Margins on the form */
+/* Style the table */
+.card {
+  background-color: rgba(245, 243, 243, 0.8);
+}
+
+.card-header {
+  font-family: "Oswald", sans-serif;
+}
+
+.card-body {
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+/* Footer Styling */
+.footer {
+  text-align: center;
+  background-color: #000008;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  color: whitesmoke;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  padding-bottom: 2px;
+}
+
+.push .footer {
+  height: 30px;
+}
+
+.link {
+  color: whitesmoke;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #8b303f;
+}
+
+/*# sourceMappingURL=output.css.map */

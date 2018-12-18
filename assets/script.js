@@ -116,6 +116,8 @@ $(document).ready(function () {
             console.log(album);
             console.log(artist);
 
+            // (".card-header").html(album + ", " + artist);
+
             var songRow = $("<tr>").append(
               $("<td>").text(songTitle),
               $("<td>").text(album),
