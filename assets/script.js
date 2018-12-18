@@ -43,7 +43,6 @@ $(document).ready(function () {
     console.log(name);
     console.log(location);
 
-
     // Weather App API Key
     var APIKey = "13783c874e54ca4e2de546d0430362f0";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&units=imperial&appid=" + APIKey;
@@ -65,7 +64,6 @@ $(document).ready(function () {
         console.log(weatherDescription);
         console.log(locationCity);
         console.log(mood);
-
 
         // Add to html
         $(".instructions").append(
@@ -128,11 +126,8 @@ $(document).ready(function () {
           }
         });
 
-
-
         // Show playlist
         $(".userMusic").show();
-
       })
 
     $("#name").val("");
