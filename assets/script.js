@@ -25,10 +25,10 @@ $(document).ready(function () {
   var thunderstormMusic = [27221515, 29621868, 14214183, 26627286, 28343751, 30161803, 20923198, 20523014, 14298911, 13954561, 19626917, 22993501, 20918069, 26682020, 10280400, 11302331, 11326966, 29365764, 10974137, 19607831, 11335735];
   var drizzleMusic = [22361598, 27489448, 29720412, 28388607, 10295648, 27598567, 27194451, 13816702, 28221475, 28221475, 23704555, 23860222, 11309308, 29976222, 21345246, 14209073];
   var rainMusic = [27720830, 25974030, 29250381, 25169349, 17053074, 20906499, 29194043, 23604992, 28202568, 29377809, 28024665, 20901646, 29572368, 29141934];
-  var snowMusic = [23449658, 17629843, 15344242, 27976005, 24694911, 11320623, 23861786, 23905044, 23969650];
+  var snowMusic = [13185575, 10813148, 20145030, 10284233, 16971212, 10307401, 10403476, 10299112, 10774845, 10266184, 10309833, 10276826, 10288693];
   var atmosphereMusic = [28708799, 22012241, 16637257, 20568155, 28582508, 11309799, 11314052, 10426863, 28689059, 29809240, 29550454, 10277909, 15576062, 10351407, 10287464, 14283082, 15545998, 13908538, 24559057, 23989672, 15564339];
-  var clearMusic = [19506205, 20916221, 19573520, 27656491, 26318237, 26020802, 25964776, 24006984, 28514027, 30509479, 29709466, 29360342, 26142662, 25984735, 23856024];
-  var cloudMusic = [28228758, 15402133, 11316988, 11316988, 10814625, 18766926, 10279891, 14245174, 19468549, 19468520];
+  var clearMusic = [11008559, 13415186, 28578970, 21348868, 11343497, 1131171, 29709466, 22683410, 20882255, 20757738, 29647720, 20805457, 28857029, 28637010, 29862631, 11330563, 23335871, 25865374, 21809511, 26096185];
+  var cloudMusic = [15799416, 15402133,10615448, 11316988, 10814625,18766926,16047398,17216196, 10279891, 18973650,11065863,10284678, 10279346,17664370,11065711];
 
   // Hide music table until form is submitted
   $(".userMusic").hide();
@@ -120,13 +120,42 @@ $(document).ready(function () {
             // console.log(album);
             // console.log(artist);
 
+
+
             var songRow = $("<tr>").append(
               $("<td>").text(songTitle),
               $("<td>").html("<a class='songInfo' href=" + songInfo + ">Song Info</a>")
             );
 
+
+
             $(".table > tbody").append(songRow);
           }
+
+          var APIKey2 = "8189f287014498b50483839cf645fcef";
+          var queryURL3 = "https://api.musixmatch.com/ws/1.1/artist.related.get?artist_id=" + trackList[0].track.artist_id + "&page_size=2&page=1&apikey=" + APIKey2;
+          var proxy = "https://cors-anywhere.herokuapp.com/";
+          var finishedurl2 = proxy + queryURL3;
+
+          $.ajax({
+            url: finishedurl2,
+            method: "GET",
+            crossDomain: true,
+            dataType: "json",
+            contentType: "application/json"
+
+          }).then(function (response3) {
+            console.log(queryURL3);
+            for (i = 0; i < response3.message.body.artist_list.length; i++) {
+              var relatedArtists = response3.message.body.artist_list[i].artist.artist_name;
+              console.log(relatedArtists);
+
+              $("#relatedArtists").append(
+                $("<ul>"),
+                $("<li>").text(relatedArtists)
+              );
+            }
+          });
 
           // Show playlist
           $(".userMusic").show();
@@ -147,6 +176,7 @@ $(document).ready(function () {
     $("tbody").empty();
     $(".personalgreeting").empty();
     $(".album-header").empty();
+    $("#relatedArtists").empty();
     $(".open-page").show();
   })
 })
