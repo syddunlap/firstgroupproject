@@ -94,4 +94,14 @@ h4 {
   color: #8b303f;
 }
 
+.songInfo {
+  color: #8b303f;
+}
+
+.songInfo:hover {
+  color: #8b303f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=output.css.map */

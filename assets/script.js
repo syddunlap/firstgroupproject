@@ -61,6 +61,10 @@ $(document).ready(function () {
         var weatherDescription = response.weather[0].description;
         var locationCity = response.name;
         var mood = response.weather[0].id;
+        var iconID = response.weather[0].icon;
+        // var iconURL = $("<img>");
+        // iconURL.attr("src", icon);
+        var iconURL = "http://openweathermap.org/img/w/" + iconID + ".png";
         console.log(weatherDescription);
         console.log(locationCity);
         console.log(mood);
@@ -118,7 +122,7 @@ $(document).ready(function () {
 
             var songRow = $("<tr>").append(
               $("<td>").text(songTitle),
-              $("<td>").html(songInfo)
+              $("<td>").html("<a class='songInfo' href=" + songInfo + ">Song Info</a>")
             );
 
             $(".table > tbody").append(songRow);
@@ -137,9 +141,12 @@ $(document).ready(function () {
 
   // THIS NEEDS WORK.. 
   // Need to figure out resetting the userMusic page so that it only prints current and doesn't just keep adding albums on top of each other
-  $("#restart").on("click", function(event) {
+  $("#restart").on("click", function (event) {
     event.preventDefault();
     $(".userMusic").hide();
+    $("tbody").empty();
+    $(".personalgreeting").empty();
+    $(".album-header").empty();
     $(".open-page").show();
   })
 })
