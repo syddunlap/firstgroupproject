@@ -8,12 +8,17 @@
   margin: 15px auto 15px auto;
 }
 
+.card-header .card-body {
+  font-family: "Oswald", sans-serif;
+}
+
 /* Style the entire page */
 body {
   background-image: url("../images/backgroundimage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* Style the header */
@@ -59,14 +64,6 @@ h4 {
   background-color: rgba(245, 243, 243, 0.8);
 }
 
-.card-header {
-  font-family: "Oswald", sans-serif;
-}
-
-.card-body {
-  font-family: "Open Sans Condensed", sans-serif;
-}
-
 /* Footer Styling */
 .footer {
   text-align: center;
@@ -76,14 +73,15 @@ h4 {
   color: whitesmoke;
   padding: 5px 0px 5px 0px;
   width: 100%;
+  margin-bottom: 0px;
 }
 
 .wrapper {
   min-height: 100%;
-  padding-bottom: 2px;
 }
 
 .push .footer {
+  margin-top: -30px;
   height: 30px;
 }
 

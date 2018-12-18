@@ -103,23 +103,23 @@ $(document).ready(function () {
 
         }).then(function (response2) {
           console.log(response2);
-          console.log(response2.message.body.track_list);
+          // console.log(response2.message.body.track_list);
           var trackList = response2.message.body.track_list;
 
           for (i = 0; i < response2.message.body.track_list.length; i++) {
             var songTitle = trackList[i].track.track_name;
             var album = trackList[i].track.album_name;
             var artist = trackList[i].track.artist_name;
-            console.log(songTitle)
-            console.log(album);
-            console.log(artist);
+            var duration = trackList[i].track.track_length;
+            // console.log(songTitle);
+            // console.log(album);
+            // console.log(artist);
 
             // (".card-header").html(album + ", " + artist);
 
             var songRow = $("<tr>").append(
               $("<td>").text(songTitle),
-              $("<td>").text(album),
-              $("<td>").text(artist)
+              $("<td>").text(duration)
             );
 
             $(".table > tbody").append(songRow);
