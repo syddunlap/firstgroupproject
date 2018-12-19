@@ -1,15 +1,17 @@
 $(document).ready(function () {
 
   // Initialize Firebase
-  // var config = {
-  //     apiKey: "AIzaSyAu6PqMN6N4QlsttiRI9U6PT3SVaGXuy6w",
-  //     authDomain: "musicweather-fe8c7.firebaseapp.com",
-  //     databaseURL: "https://musicweather-fe8c7.firebaseio.com",
-  //     projectId: "musicweather-fe8c7",
-  //     storageBucket: "musicweather-fe8c7.appspot.com",
-  //     messagingSenderId: "589121883549"
-  //   };
-  //   firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyAu6PqMN6N4QlsttiRI9U6PT3SVaGXuy6w",
+    authDomain: "musicweather-fe8c7.firebaseapp.com",
+    databaseURL: "https://musicweather-fe8c7.firebaseio.com",
+    projectId: "musicweather-fe8c7",
+    storageBucket: "musicweather-fe8c7.appspot.com",
+    messagingSenderId: "589121883549"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
 
   // Arrays for weather IDs
   var thunderstorm = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
@@ -23,12 +25,12 @@ $(document).ready(function () {
   // Arrays for albums
   var albumID = [];
   var thunderstormMusic = [27221515, 29621868, 14214183, 26627286, 28343751, 30161803, 20923198, 20523014, 14298911, 13954561, 19626917, 22993501, 20918069, 26682020, 10280400, 11302331, 11326966, 29365764, 10974137, 19607831, 11335735];
-  var drizzleMusic = [22361598, 27489448, 29720412, 28388607, 10295648, 27598567, 27194451, 13816702, 28221475, 28221475, 23704555, 23860222, 11309308, 29976222, 21345246, 14209073];
-  var rainMusic = [27720830, 25974030, 29250381, 25169349, 17053074, 20906499, 29194043, 23604992, 28202568, 29377809, 28024665, 20901646, 29572368, 29141934];
+  var drizzleMusic = [10288735, 11000158, 23681127,10289120, 10716402, 23704555, 15430719, 10279693, 30561118, 13864308, 10605599, 10265958, 10533719, 10283878, 15443312, 21574329, 22370091, 10395661, 10276432, 10284726];
+  var rainMusic = [10277961,  10471939,  14080398,  16607969,  10628237,  17625563, 10853548, 10774845, 10278080, 10333061, 21898179, 17625597, 16086513,  10970205,  17195770,  17130270, 15717664, 10282245,  10420524, 21431001];
   var snowMusic = [13185575, 10813148, 20145030, 10284233, 16971212, 10307401, 10403476, 10299112, 10774845, 10266184, 10309833, 10276826, 10288693];
   var atmosphereMusic = [28708799, 22012241, 16637257, 20568155, 28582508, 11309799, 11314052, 10426863, 28689059, 29809240, 29550454, 10277909, 15576062, 10351407, 10287464, 14283082, 15545998, 13908538, 24559057, 23989672, 15564339];
-  var clearMusic = [11008559, 13415186, 28578970, 21348868, 11343497, 1131171, 29709466, 22683410, 20882255, 20757738, 29647720, 20805457, 28857029, 28637010, 29862631, 11330563, 23335871, 25865374, 21809511, 26096185];
-  var cloudMusic = [15799416, 15402133,10615448, 11316988, 10814625,18766926,16047398,17216196, 10279891, 18973650,11065863,10284678, 10279346,17664370,11065711];
+  var clearMusic = [11008559, 28578970, 21348868, 11343497, 1131171, 29709466, 22683410, 20882255, 20757738, 29647720, 20805457, 28857029, 29862631, 11330563, 23335871, 25865374, 21809511, 26096185];
+  var cloudMusic = [15799416, 15402133, 10615448, 11316988, 10814625, 18766926, 16047398, 17216196, 10279891, 18973650, 11065863, 10284678, 10279346, 17664370, 11065711];
 
   // Hide music table until form is submitted
   $(".userMusic").hide();
@@ -40,8 +42,6 @@ $(document).ready(function () {
     var name = $("#name").val().trim();
     var city = $("#city").val().trim();
     var country = $("#country").val().trim();
-    console.log(name);
-    console.log(location);
 
     // Weather App API Key
     var APIKey = "13783c874e54ca4e2de546d0430362f0";
@@ -107,11 +107,23 @@ $(document).ready(function () {
 
         }).then(function (response2) {
           console.log(response2);
-          // console.log(response2.message.body.track_list);
           var trackList = response2.message.body.track_list;
           var album = trackList[0].track.album_name;
           var artist = trackList[0].track.artist_name;
-          $(".album-header").append(album + ", " + artist);
+          $("#albumName").html(album);
+          $("#artistName").html("by " + artist)
+
+          // creating firebase variables 
+
+          var recentUser = {
+            "name": name,
+            "city": city,
+            "artist": artist
+      
+          };
+          console.log(recentUser);
+      
+          database.ref().push(recentUser);
 
           for (i = 0; i < response2.message.body.track_list.length; i++) {
             var songTitle = trackList[i].track.track_name;
@@ -166,6 +178,19 @@ $(document).ready(function () {
     $("#name").val("");
     $("#city").val("");
     $("#country").val("");
+  })
+
+  database.ref().limitToLast(4).on("child_added", function (snapshot) {
+    var recentUserName = snapshot.val().name;
+    var recentUserCity = snapshot.val().city;
+    var recentUserArtist = snapshot.val().artist;
+
+    $("#recentUsers").prepend(
+      $("<ul>"),
+      $("<li>").text(recentUserName + " from " + recentUserCity + " was rockin' out to " + recentUserArtist)
+    );
+
+
   })
 
   // THIS NEEDS WORK.. 

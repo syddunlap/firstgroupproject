@@ -44,10 +44,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="container-fluid text-center instructions">
-                        <h4>Welcome.</h4>
-                        <h4>Tell us your name and location and we will give you an album<br>perfect for the weather
-                            conditions
-                            outside,<br>wherever you are, right now!</h4>
+                        <h4 id = "intro">Tell us a little bit about yourself and we'll give you an album perfect for the weather in your current location. </h4>
                     </div>
                 </div>
             </div>
@@ -90,7 +87,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
-                        <div class="card-header album-header"></div>
+                        <div class="card-header album-header">
+                            <h5 id="albumName"></h5>
+                            <h5 id="artistName"></h5>
+                        </div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
@@ -110,7 +110,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
-                        <div class="card-header">Related Artists</div>
+                        <div class="card-header"><h5>Related Artists</h5></div>
                         <div class="card-body">
                             <div id="relatedArtists"></div>
 
@@ -126,7 +126,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
-                        <div class="card-header">Recent Users</div>
+                        <div class="card-header"><h5>Here's what others are listening to</h5></div>
                         <div class="card-body">
                             <div id="recentUsers"></div>
 
