@@ -24,9 +24,9 @@ body {
 /* Style the header */
 h1 {
   font-family: "Monoton", cursive;
-  font-size: 56px;
+  font-size: 70px;
   padding-top: 60px;
-  color: #8b303f;
+  color: #f05871;
   text-shadow: 2px 2px 4px #000000;
 }
 
@@ -37,7 +37,6 @@ h4 {
   color: whitesmoke;
   font-family: "IBM Plex Mono", monospace;
 }
-
 
 .instructions, .personalgreeting {
   max-width: 80%;
@@ -75,15 +74,18 @@ h4 {
   padding: 5px 0px 5px 0px;
   width: 100%;
   margin-bottom: 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .wrapper {
   min-height: 100%;
+  margin-bottom: -30px;
 }
 
-.push .footer {
-  margin-top: -30px;
-  height: 30px;
+.push {
+  height: 100px;
 }
 
 .link {
@@ -109,6 +111,5 @@ h5 {
   color: black;
   text-align: center;
 }
-
 
 /*# sourceMappingURL=output.css.map */
