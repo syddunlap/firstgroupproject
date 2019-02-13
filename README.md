@@ -14,5 +14,17 @@ The user will also get related artists returned to them, as well as, being able 
 - MusixMatch API
 - Firebase
 
+## Project Screenshots & Link to Application
+Main Landing Page for Application:
+![Main Landing Page](assets/images/mainpage.png)
+
+Music Recommendations Based on User Input:
+![Music Recommendation](assets/images/musicrecs.png)
+
+Related Artists & Most Recent Users:
+![Related Artist](assets/images/relatedartists.png)
+
+[Click Here to go to Audio Rain](https://syddunlap.github.io/firstgroupproject/)
+
 ## Link to Project Presentation
 [Google Docs](https://drive.google.com/open?id=1hbmRUJ5rQSP--A3yn6FxNGuB9st07rfD)
